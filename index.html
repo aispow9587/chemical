@@ -3,6 +3,42 @@
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
   <title>Aisbel Powell - Menu</title>
   <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/">
+  <script type="text/javascript">
+
+  //<![CDATA[
+
+
+
+  function getLoc(){
+
+    navigator.geolocation.getCurrentPosition(showMap);
+
+  } // end getLoc
+
+
+
+  function showMap(position){
+
+    var lat = position.coords.latitude;
+
+    var long = position.coords.longitude;
+
+    var linkUrl = "http://maps.google.com?q=" + lat + "," + long;
+
+    var mapLink = document.getElementById("mapLink");
+
+    mapLink.href = linkUrl;
+
+    var embedMap = document.getElementById("embedMap");
+
+    embedMap.src = linkUrl + "&z=16&amp;output=embed";
+
+  } // end showMap
+
+
+
+  //]]>
+  </script>
   <style type="text/css" title="Amaya theme">
 /* Modern style for Amaya Editor Lite */
 
@@ -161,7 +197,7 @@ a[href] {
   </style>
 </head>
 
-<body>
+<body onload="getLoc()">
 <p style="text-align:center;margin-left:auto;margin-right:auto;">MENU</p>
 
 <p>1. <a href="cv.html">My Curricula</a></p>
@@ -169,6 +205,22 @@ a[href] {
 <p>2. <a href="chemkin.html">Chemical Kinetic</a></p>
 
 <p>3. <a href="formu.html">HTML Forms</a></p>
+
+<p></p>
+
+<h1
+style="text-align:center;margin-left:auto;margin-right:auto;">Geolocalizacion</h1>
+
+<p></p>
+
+<h3>Geolocalizacion Demo</h3>
+
+<p><a id="mapLink" href="http://maps.google.com">click for a map</a> </p>
+<iframe id="embedMap" width="800" height="500" frameborder="0" scrolling="no"
+marginheight="0" marginwidth="0" src="">
+</iframe>
+<br>
+
 
 <p></p>
 </body>
